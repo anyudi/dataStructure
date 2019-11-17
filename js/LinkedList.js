@@ -188,4 +188,23 @@ function LinkedList() {
     this.print = function () {
         console.log(this.toString())
     }
+
+    /*
+    * 反转链表
+    * */
+    this.reverse = function () {
+        if(length === 1){
+            return head;
+        }
+        var preNode = null;
+        var nextNode = null;
+        var curNode = head;
+        while (curNode){
+            nextNode = curNode.next;
+            curNode.next = preNode;
+            preNode = curNode;
+            curNode = nextNode;
+        }
+        head = preNode;
+    }
 }
