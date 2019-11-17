@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队列</title>
+    <script src="js/queue.js" type="text/javascript"></script>
+    <script src="js/PriorityQueue.js" type="text/javascript"></script>
+</head>
+<body>
+<script>
+    priorityQueueExample();
+    function queueExample() {
+        var queue = new Queue();
+        queue.enqueue(10);
+        queue.enqueue(9);
+        queue.enqueue(6);
+        queue.print();
+
+        queue.dequeue();
+        queue.print();
+        queue.dequeue();
+        queue.print();
+        queue.dequeue();
+        queue.print();
+    }
+
+    function priorityQueueExample() {
+        var queue = new PriorityQueue();
+        queue.enqueue(10,3);
+        queue.enqueue(9,1);
+        queue.enqueue(6,2);
+        queue.print();
+
+        queue.dequeue();
+        queue.print();
+        queue.dequeue();
+        queue.print();
+        queue.dequeue();
+        queue.print();
+    }
+</script>
+</body>
+</html>

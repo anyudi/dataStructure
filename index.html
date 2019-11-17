@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript数据结构</title>
+    <a href="./stack.html"></a>
+</head>
+<body>
+<script>
+    var twoSum_1 = function(nums, target) {
+        for(var i = 0;i<nums.length;i++){
+            var item = parseInt(nums[i]);
+            for(var j = i+1;j<nums.length;j++){
+                if(target - item == nums[j]){
+                    return [i,j];
+                }
+            }
+        }
+        return [0,0];
+    };
+    console.log(window.twoSum_1([3,2,4],6))
+    var twoSum_2 = function(nums, target) {
+        var hashSet = [];
+        for(var i = 0;i<nums.length;i++){
+            var item = nums[i];
+            var temp = target - item;
+            if(hashSet[temp]){
+                return [hashSet[temp],i]
+            }
+            hashSet[item] = i;
+        }
+        return [0,0];
+    };
+    console.log(window.twoSum_2([3,2,4],6))
+
+    var threeSum_1 = function(nums) {
+        var result = [];
+        if(nums.length < 3){
+            return result;
+        }
+        if(nums == null || nums.length < 3)
+            return result;
+
+
+        nums = nums.sort(function (a,b) {
+            return a - b;
+        });
+        // 判断边界
+        if(nums[0] > 0 || nums[nums.length - 1] < 0)
+            return result;
+
+        for(var i = 0; i < nums.length - 2; i++) {
+
+            // 删除重复
+            if(i !== 0 && nums[i] === nums[i - 1])
+                continue;
+
+            var left = i + 1;
+            var right = nums.length - 1;
+            while(left < right && nums[i] < 1) {
+                var s = nums[i] + nums[left] + nums[right];
+                if(s === 0) {
+                    result.push([nums[i], nums[left], nums[right]]);
+                    left++;
+                    right--;
+                    while(left < right && nums[left] === nums[left - 1])
+                        left++;
+                    while(left < right && nums[right] === nums[right + 1])
+                        right--;
+                } else if(s > 0) {
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+        }
+
+        return result;
+    };
+    console.log(window.threeSum_1([-1,0,1,2,-1,-4]));
+
+    var maxSubArray = function(nums) {
+        var max = -2147483647,sum = 0;
+        for(var i=0;i<nums.length;i++){
+            sum += nums[i];
+            if(sum > max){
+                max = sum;
+            }else if(sum < 0){
+                sum=0;
+            }
+        }
+        return max;
+    };
+
+    console.log(window.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+</script>
+</body>
+</html>

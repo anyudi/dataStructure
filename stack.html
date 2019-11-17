@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栈</title>
+    <script src="js/stack.js" type="text/javascript"></script>
+</head>
+<body>
+<script>
+    var stack = new Stack();
+    stack.push(10);
+    stack.push(9);
+    stack.push(6);
+    stack.print();
+
+    stack.pop();
+    stack.print();
+    stack.pop();
+    stack.print();
+    stack.pop();
+    stack.print();
+
+    function verificationCode(code) {
+        var left = ["{","("];
+        var codeDict = {"}":"{",")":"("};
+        var stack = new Stack();
+        for (var i = 0;i<code.length;i++){
+            var item = code[i];
+            if(left.indexOf(item) > -1){
+                stack.push(item);
+            }else {
+                var peek = stack.peek();
+                if(peek === codeDict[item]){
+                    stack.pop();
+                }else{
+                    stack.push(item);
+                }
+            }
+        }
+        if(stack.isEmpty()){
+            console.log("语法解析正确...");
+        }else{
+            console.log("语法解析异常...");
+            stack.print();
+        }
+    }
+    verificationCode("{({)(){()}}");
+</script>
+</body>
+</html>
