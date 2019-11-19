@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二叉搜索树</title>
+    <script type="text/javascript" src="js/BinarySearchTree.js"></script>
+</head>
+<body>
+<script>
+    var tree = new BinarySearchTree();
+    tree.insert(20);
+    tree.insert(23);
+    tree.insert(21);
+    tree.insert(24);
+    tree.insert(17);
+    console.log("中序遍历");
+    tree.inOrderTraverse(function (data) {
+        console.log(data);
+    })
+    console.log("前序遍历");
+    tree.preOrderTraverse(function (data) {
+        console.log(data);
+    })
+    console.log("后序遍历");
+    tree.postOrderTraverse(function (data) {
+        console.log(data);
+    })
+
+    console.log("最大节点为："+tree.getMax());
+    console.log("最小节点为："+tree.getMin());
+    console.log("树中是否有3："+tree.search(3));
+    console.log("树中是否有17："+tree.search(17));
+    console.log("树中是否有20："+tree.search(20));
+    tree.remove(21);
+    console.log("中序遍历");
+    tree.inOrderTraverse(function (data) {
+        console.log(data);
+    })
+</script>
+</body>
+</html>
