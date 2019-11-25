@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>图</title>
+    <script src="js/queue.js"></script>
     <script src="js/Graph.js"></script>
 </head>
 <body>
@@ -29,5 +30,15 @@
     graph.addEdge('D','G');
     graph.addEdge('E','F');
     graph.print();
+
+    console.log('开始广度优先搜索');
+    graph.bfs('A',function (v) {
+        console.log(v);
+    })
+
+    console.log('开始深度优先搜索');
+    graph.dfs('A',function (v) {
+        console.log(v);
+    })
 </script>
 </html>
