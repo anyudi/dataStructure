@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索算法</title>
+    <script src="js/Search.js"></script>
+</head>
+<body>
+<script>
+    var search = new Search();
+    var array = [34,23,53,43,64,74,24,35,63];
+    // var index = search.sequentialSearch(array,64);
+    var index = search.binarySearch(array,64);
+
+    if(index === -1){
+        console.log("未找到对应的数字");
+    }else{
+        console.log("该值存在于数组中");
+    }
+</script>
+</body>
+</html>
